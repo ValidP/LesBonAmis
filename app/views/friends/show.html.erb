@@ -1,0 +1,33 @@
+<style>
+.center {
+  text-align: center;
+}
+
+</style>
+
+
+
+
+<% test=0 %>
+<br><br>
+
+
+<h1>Balance : </h1>
+
+
+
+
+	
+<% if @Total < 0 %>
+
+
+<center><h3>Tu doit <%= @Total.abs %> € à <%= @user.name %></h3></center>
+
+<% else %>
+
+<center><h3><%= @user.name %> te doit <%= @Total.abs %> € </center></h3>
+
+<% end %>
+
+
+</div>

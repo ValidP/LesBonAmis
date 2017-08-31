@@ -1,0 +1,63 @@
+<style>
+.center {
+  text-align: center;
+}
+
+</style>
+
+
+<div class="jumbotron" style="margin-bottom:0px;">
+      <div class="container center">
+        <h1 class="display-3">Bienvenue sur les bons amis   <%= current_user.name %></h1>
+        <p>  <%= link_to "Ajouter une dépense", new_expense_path, class: "btn btn-lg btn-primary" %>
+		</p>
+      </div>
+    </div>	
+	
+	
+<div class="jumbotron" style="background-color:#2ecc71;color:white;margin-bottom:0px;">
+      <div class="container center">
+	<center><h1 style="font-weight:300">Balance Global</h1></center>
+
+		<center><h4 style="font-weight:300"><b><%= @BalanceGlobal %>€</b></h4></center>
+		<center><h4 style="font-weight:300">Tu doit <b><%= @BalanceTotal %>€</b> à tes amis</h4></center>
+	<center><h4 style="font-weight:300">Tes amis te doivent <b><%= @BalanceDoivent %>€</b></h4></center>
+      </div>
+    </div>	
+
+	
+		
+<div class="jumbotron" style="background-color:#3498db;color:white;">
+      <div class="container">
+<table class="table" style="width:100%" >
+  <thead class="thead">
+  <tr>
+    <th>#</th>
+    <th>Nom dépense</th>
+    <th>Montant</th>
+	<th>Montant du</th>
+	<th>Payeur</th>
+  </tr>
+ </thead>
+  <% current_user.expenses.each do |expense| %>
+  
+   
+  
+    <% @MontantDu =  (expense.amount / expense.users.count) %>
+	<% if expense.payeur == current_user %>
+	    <% @MontantDu =  0 %>
+	<% end %>
+	
+	
+	
+    <tr>
+	  <td><%= expense.id %></td>
+	  <td><%= expense.title %></td>
+      <td><%= expense.amount %></td>
+      <td><%= @MontantDu %>  </td>
+	  <td><%= expense.payeur.name %>  </td>
+    </tr>
+ <% end %>
+</table>
+      </div>
+    </div>	

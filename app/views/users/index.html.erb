@@ -1,0 +1,43 @@
+<br><br>
+<div class="container">
+
+<h1>Liste des utilisateurs</h1>
+
+<div class="row">
+<div class="col-9"></div>
+
+<div class="col-3">
+	<%= link_to 'Nouvelle utilisateur', new_user_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+</div>
+<br><br><br>
+
+
+<div class="row">
+<div class="col-12">
+
+<table class="table" >
+  <thead class="thead-inverse">
+  <tr>
+    <th>#</th>
+    <th>Nom</th>
+    <th>Email</th>
+	<th>Editer</th>
+	<th>Supprimer</th>
+  </tr>
+ </thead>
+  <% @users.each do |user| %>
+    <tr>
+	  <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Editer', edit_user_path(user), class: "btn btn-outline-info" %></td>
+      <td><%= link_to 'Supprimer', user_path(user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },class: "btn btn-outline-info" %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>
