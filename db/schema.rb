@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170829125769) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "expenses", force: :cascade do |t|
     t.decimal "montant"
     t.string "title"
@@ -21,10 +24,12 @@ ActiveRecord::Schema.define(version: 20170829125769) do
   end
 
   create_table "expenses_users", id: false, force: :cascade do |t|
-    t.integer "expense_id"
-    t.integer "user_id"
+    t.bigint "expense_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["expense_id"], name: "index_expenses_users_on_expense_id"
+    t.index ["user_id"], name: "index_expenses_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
