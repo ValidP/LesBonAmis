@@ -1,22 +1,22 @@
 development:
   adapter: postgresql
-  database: lesbonamis_development
-  user: test
-  password: test
+  database: df11qkbgqdjkn9
+  user: ovhomwqftnxveb
+  password: af6a36ca30850562ec8f6e9a6a221c23d28ff4160a2bae5a38b54afe1262002c
   pool: 5
   timeout: 5432
 test:
   adapter: postgresql
-  database: lesbonamis_test
-  user: test
-  password: test
+  database: df11qkbgqdjkn9
+  user: ovhomwqftnxveb
+  password: af6a36ca30850562ec8f6e9a6a221c23d28ff4160a2bae5a38b54afe1262002c
   pool: 5
   timeout: 5432
 
 production:
   adapter: postgresql
-  database: lesbonamis_production
-  user: test
-  password: test
+  database: df11qkbgqdjkn9
+  user: ovhomwqftnxveb
+  password: af6a36ca30850562ec8f6e9a6a221c23d28ff4160a2bae5a38b54afe1262002c
   pool: 5
   timeout: 5432
