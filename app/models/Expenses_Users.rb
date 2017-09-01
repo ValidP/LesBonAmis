@@ -1,4 +1,4 @@
-class expenses_users < ApplicationRecord
+class Expenses_users < ApplicationRecord
 
     create_table :expense_user, id: false do |t|
       t.belongs_to :expense, index: true
